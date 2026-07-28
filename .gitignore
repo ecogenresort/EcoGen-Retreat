@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Environment variables (VITE_GOOGLE_SCRIPT_URL, etc.) — never commit real values
+.env
+.env.*
+!.env.example
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -111,12 +111,17 @@ const Home: React.FC = () => {
     };
 
     try {
-        await fetch(GOOGLE_SCRIPT_URL, {
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain' },
             body: JSON.stringify(payload)
         });
-        setIsSent(true);
+        const result = await response.json();
+        if (result.status === 'success') {
+            setIsSent(true);
+        } else {
+            alert("Something went wrong. Please call us directly.");
+        }
     } catch (error) {
         console.error(error);
         alert("Something went wrong. Please call us directly.");

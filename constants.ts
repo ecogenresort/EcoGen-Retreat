@@ -3,7 +3,13 @@ import { GALLERY_IMAGES, img } from './assets';
 
 export { GALLERY_IMAGES } from './assets';
 
-export const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwQpCdq-BL5WSk1ZghuDkJ03wIiMhI81Xa2cuSWj_Jtiuezzlz_q08P6psNhCfZbpgn/exec';
+export const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL ?? '';
+
+if (!GOOGLE_SCRIPT_URL && import.meta.env.DEV) {
+  console.warn(
+    'VITE_GOOGLE_SCRIPT_URL is not set. Booking and contact forms will fail to submit. See .env.example.'
+  );
+}
 
 export const EVENTS_DATA: EventItem[] = [
   {

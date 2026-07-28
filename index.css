@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sand: #F3EFE6;
+  --color-ivory: #FAF8F2;
+  --color-forest: #2F5D50;
+  --color-forestDeep: #204138;
+  --color-gold: #C8B27D;
+  --color-charcoal: #222222;
+  --color-sage: #607A5F;
+  --color-midnightForest: #0f1f1b;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: "Cormorant Garamond", "Playfair Display", serif;
+  --font-subtitle: "Libre Baskerville", serif;
+}
+
+/* Smooth scrolling and base overrides */
+html { scroll-behavior: smooth; }
+body { background-color: #FAF8F2; color: #222222; -webkit-font-smoothing: antialiased; }
+
+/* GHL Overrides & Typography */
+.ghl-ecogen-root { background: #FFFEFA !important; color: #222222 !important; -webkit-font-smoothing: antialiased; position: relative; width: 100%; overflow-x: hidden; }
+
+/* TYPOGRAPHY UPDATE: Professional Serif Look */
+.ghl-ecogen-root * { font-family: 'Libre Baskerville', serif; }
+
+/* Headings: Playfair Display, Bold, Upright (No Italic) */
+.ghl-ecogen-root .font-serif, .ghl-ecogen-root h1, .ghl-ecogen-root h2, .ghl-ecogen-root h3, #nav-logo {
+    font-family: 'Playfair Display', serif !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+}
+
+/* Global Override: Remove Italics from everything except specific exceptions */
+.ghl-ecogen-root .italic {
+    font-style: normal !important;
+}
+
+.ghl-ecogen-root .font-sans {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Animation Utilities */
+.fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ken-burns {
+  animation: kb 30s infinite alternate ease-in-out;
+}
+@keyframes kb {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+/* Calendar Styles */
+.calendar-day.booked {
+    background-color: #ef4444 !important; /* Red color */
+    color: white !important;
+    cursor: not-allowed !important;
+    opacity: 0.7;
+    text-decoration: line-through;
+}
+
+.calendar-day.booked.checkout-allowed {
+    cursor: pointer !important;
+    opacity: 1 !important;
+    text-decoration: none !important;
+    background: linear-gradient(135deg, #f3f0e7 50%, #ef4444 50%) !important;
+    color: #222222 !important;
+    border: 1px solid #ef4444;
+}
+
+.calendar-day.booked.selected {
+    background: #2D4438 !important;
+    color: white !important;
+    text-decoration: none !important;
+    opacity: 1 !important;
+}
+
+/* Ringing animation for phone support */
+@keyframes phone-ring {
+  0%, 30%, 100% { transform: rotate(0deg); }
+  3% { transform: rotate(-15deg); }
+  6% { transform: rotate(15deg); }
+  9% { transform: rotate(-13deg); }
+  12% { transform: rotate(13deg); }
+  15% { transform: rotate(-10deg); }
+  18% { transform: rotate(10deg); }
+  21% { transform: rotate(-5deg); }
+  24% { transform: rotate(5deg); }
+  27% { transform: rotate(0deg); }
+}
+.animate-phone-ring {
+  animation: phone-ring 2s ease-in-out infinite;
+  transform-origin: center;
+  display: inline-block;
+}
+
+/* Pulsing glow animation around the main contact button */
+@keyframes pulse-ring-glow {
+  0% { box-shadow: 0 0 0 0 rgba(200, 178, 125, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(200, 178, 125, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(200, 178, 125, 0); }
+}
+.animate-pulse-ring-glow {
+  animation: pulse-ring-glow 2.5s infinite;
+}

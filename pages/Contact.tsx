@@ -43,13 +43,18 @@ const Contact: React.FC = () => {
     };
 
     try {
-        await fetch(GOOGLE_SCRIPT_URL, {
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
             // IMPORTANT: Removed no-cors to ensure delivery confirmation
             headers: { 'Content-Type': 'text/plain' },
             body: JSON.stringify(payload)
         });
-        setIsSent(true);
+        const result = await response.json();
+        if (result.status === 'success') {
+            setIsSent(true);
+        } else {
+            alert("Something went wrong. Please call us.");
+        }
     } catch (error) {
         console.error(error);
         alert("Something went wrong. Please call us.");

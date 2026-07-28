@@ -306,8 +306,9 @@ const Chatbot: React.FC = () => {
         headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify(payload)
       });
-      
-      if (!response.ok) throw new Error('Failed');
+
+      const result = await response.json();
+      if (!response.ok || result.status !== 'success') throw new Error(result.message || 'Failed');
 
       addBotMessage("✅ Excellent! Your details have been submitted. Our team will contact you shortly.");
       setMessages(prev => [...prev, { id: Date.now() + 1, type: 'bot', text: "Is there anything else I can assist you with today?", options: ["Retreat Location", "Nearby Attractions"] }]);
@@ -381,6 +382,7 @@ const Chatbot: React.FC = () => {
                       <div className="bg-sand/30 p-4 rounded-2xl text-left text-xs space-y-2 border border-gray-100 mb-5">
                         <p className="text-[9px] uppercase font-black tracking-widest text-gray-400 mb-2">Inquiry Summary</p>
                         <div className="flex justify-between font-semibold"><span>Name:</span><span>{chatName}</span></div>
+                        <div className="flex justify-between font-semibold"><span>Dates:</span><span>{chatInDate} to {chatOutDate}</span></div>
                         <div className="flex justify-between font-semibold"><span>Guests:</span><span>{chatGuests} Guests</span></div>
                       </div>
 
@@ -393,6 +395,8 @@ ECOGEN RETREAT - CONCIERGE RESERVATION INQUIRY
 Guest Name: ${chatName}
 Phone: ${chatPhone}
 Email: ${chatEmail}
+Check-In: ${chatInDate}
+Check-Out: ${chatOutDate}
 Guests: ${chatGuests}
 Remarks: ${chatRemarks || 'None'}
 
@@ -432,6 +436,34 @@ Thank you for choosing EcoGen Retreat.
                         <div className="text-red-600 bg-red-50 text-[11px] p-2.5 rounded-lg border border-red-100 font-bold flex items-center gap-2 animate-pulse">
                           <AlertTriangle className="w-4 h-4 shrink-0" /> {chatBookingError}
                         </div>
+                      )}
+
+                      <div className="grid grid-cols-2 gap-2.5">
+                        <div className="space-y-1">
+                          <label className="block text-[9px] font-black text-gray-400 uppercase tracking-wider mb-1 font-sans">Check-In</label>
+                          <input
+                            type="date"
+                            className="w-full text-xs font-bold text-charcoal bg-sand/20 px-3 py-2.5 rounded-xl border border-transparent focus:border-gold/30 focus:bg-white outline-none font-sans"
+                            value={chatInDate}
+                            min={new Date().toISOString().split('T')[0]}
+                            onChange={(e) => setChatInDate(e.target.value)}
+                          />
+                        </div>
+                        <div className="space-y-1">
+                          <label className="block text-[9px] font-black text-gray-400 uppercase tracking-wider mb-1 font-sans">Check-Out</label>
+                          <input
+                            type="date"
+                            className="w-full text-xs font-bold text-charcoal bg-sand/20 px-3 py-2.5 rounded-xl border border-transparent focus:border-gold/30 focus:bg-white outline-none font-sans"
+                            value={chatOutDate}
+                            min={chatInDate || new Date().toISOString().split('T')[0]}
+                            onChange={(e) => setChatOutDate(e.target.value)}
+                          />
+                        </div>
+                      </div>
+                      {chatInDate && chatOutDate && calcChatNights(chatInDate, chatOutDate) > 0 && (
+                        <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">
+                          {calcChatNights(chatInDate, chatOutDate)} Night{calcChatNights(chatInDate, chatOutDate) > 1 ? 's' : ''}
+                        </p>
                       )}
 
                       <div className="space-y-1">
@@ -483,6 +515,14 @@ Thank you for choosing EcoGen Retreat.
 
                       <button 
                         onClick={async () => {
+                          if (!chatInDate || !chatOutDate) {
+                            setChatBookingError("Please select check-in and check-out dates");
+                            return;
+                          }
+                          if (calcChatNights(chatInDate, chatOutDate) <= 0) {
+                            setChatBookingError("Check-out must be after check-in");
+                            return;
+                          }
                           if (!chatName.trim()) {
                             setChatBookingError("Please enter your name");
                             return;
@@ -500,12 +540,14 @@ Thank you for choosing EcoGen Retreat.
                           setChatBookingError("");
 
                           const payload = {
-                            action: 'contact',
+                            action: 'booking',
                             name: chatName,
                             phone: chatPhone,
                             email: chatEmail,
-                            subject: `Booking Concierge Inquiry (${chatGuests} Guests)`,
-                            message: `Guest is inquiring about booking.\nNo. of guests: ${chatGuests}\nRemarks: ${chatRemarks || 'None'}\n\n(Lead captured via Chatbot Inline Booking Widget)`
+                            checkIn: chatInDate,
+                            checkOut: chatOutDate,
+                            guests: chatGuests,
+                            req: chatRemarks
                           };
 
                           try {
@@ -521,7 +563,7 @@ Thank you for choosing EcoGen Retreat.
                                 setMessages(prev => [...prev, { id: Date.now() + 10, type: 'bot', text: `🎉 Direct booking request received for ${chatName}! I've generated an itinerary below that you can keep. Feel free to contact our host to expedite approval.` }]);
                               }, 300);
                             } else {
-                              setChatBookingError("Process failed. Please dial +91 8106935999 directly.");
+                              setChatBookingError(result.message || "Process failed. Please dial +91 8106935999 directly.");
                             }
                           } catch (e) {
                             console.error(e);
