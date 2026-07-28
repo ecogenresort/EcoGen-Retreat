@@ -436,9 +436,9 @@ Thank you for choosing EcoGen. We look forward to hosting you.
 
         {nights > 0 && (
           <div className="bg-sand/20 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl space-y-3 font-sans animate-in fade-in">
-            <div className="flex justify-between text-xs font-black text-gray-400 uppercase tracking-widest"><span>\u20B9{PRICE_PER_NIGHT.toLocaleString()} x {nights} Nights</span><span>\u20B9{(nights * PRICE_PER_NIGHT).toLocaleString()}</span></div>
-            <div className="flex justify-between text-xs font-black text-gray-400 uppercase tracking-widest"><span>Service Fee</span><span>\u20B9{SERVICE_FEE.toLocaleString()}</span></div>
-            <div className="flex justify-between text-xl md:text-3xl font-serif font-bold text-forest pt-4 md:pt-6 border-t border-forest/10 italic"><span>Total</span><span>\u20B9{totalCost.toLocaleString()}</span></div>
+            <div className="flex justify-between text-xs font-black text-gray-400 uppercase tracking-widest"><span>₹{PRICE_PER_NIGHT.toLocaleString()} x {nights} Nights</span><span>₹{(nights * PRICE_PER_NIGHT).toLocaleString()}</span></div>
+            <div className="flex justify-between text-xs font-black text-gray-400 uppercase tracking-widest"><span>Service Fee</span><span>₹{SERVICE_FEE.toLocaleString()}</span></div>
+            <div className="flex justify-between text-xl md:text-3xl font-serif font-bold text-forest pt-4 md:pt-6 border-t border-forest/10 italic"><span>Total</span><span>₹{totalCost.toLocaleString()}</span></div>
           </div>
         )}
 
