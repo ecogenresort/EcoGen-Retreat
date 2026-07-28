@@ -33,7 +33,7 @@ export const img = {
   hyderabadStudio: `${base}/10_jjrss4-658dd535.jpg`,
   kohedaGutta: `${base}/maxresdefault_pdfu20-bee9a200.jpg`,
   hanumanViewpoint: `${base}/e46b8e9cd325297f91f191406d9fc563_mni3vn-c956cc0a.jpg`,
-  peddaAmberpetOrr: `${base}/ORR-Exit-No.1-3-696x583_eibrzg`,
+  peddaAmberpetOrr: `${base}/ORR-Exit-No.1-3-696x583_eibrzg.png`,
   bonguluruOrr: `${base}/maxresdefault_zqexhn-fa0df2b2.jpg`,
   lbNagar: `${base}/43-facts-about-l-b-nagar-1689241399_ewmwiz-7cd72995.jpg`,
 } as const;

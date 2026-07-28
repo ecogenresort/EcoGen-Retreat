@@ -46,6 +46,8 @@ function extractImageUrls(content) {
   return urls;
 }
 
+const KNOWN_IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.avif']);
+
 function sanitizeFilename(name) {
   return name.replace(/[<>:"/\\|?*\x00-\x1F]/g, '_').replace(/\s+/g, '-');
 }
@@ -53,14 +55,15 @@ function sanitizeFilename(name) {
 function filenameFromUrl(url) {
   const parsed = new URL(url);
   const basename = path.basename(parsed.pathname);
+  const ext = path.extname(basename).toLowerCase();
 
-  if (basename && basename !== '/' && basename.includes('.')) {
+  if (basename && basename !== '/' && KNOWN_IMAGE_EXTENSIONS.has(ext)) {
     return sanitizeFilename(decodeURIComponent(basename.split('?')[0]));
   }
 
   const slug = parsed.pathname.split('/').filter(Boolean).pop() ?? 'image';
   const hash = crypto.createHash('md5').update(url).digest('hex').slice(0, 8);
-  return sanitizeFilename(`${slug}-${hash}.jpg`);
+  return sanitizeFilename(`${slug}-${hash}`);
 }
 
 function extensionFromContentType(contentType) {
@@ -90,7 +93,7 @@ async function downloadImage(url) {
   }
 
   let filename = filenameFromUrl(url);
-  if (!path.extname(filename)) {
+  if (!KNOWN_IMAGE_EXTENSIONS.has(path.extname(filename).toLowerCase())) {
     filename += extensionFromContentType(response.headers.get('content-type'));
   }
 
