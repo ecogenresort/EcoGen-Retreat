@@ -10,7 +10,7 @@ import {
 import BookingWidget from '../components/BookingWidget';
 import Lightbox from '../components/Lightbox';
 import { GOOGLE_SCRIPT_URL } from '../constants';
-import { img, remoteImg } from '../assets';
+import { img } from '../assets';
 import { logLeadToSupabase } from '../lib/syncToSupabase';
 
 const attractions = [
@@ -32,7 +32,7 @@ const attractions = [
   {
     title: "Anjani Studio",
     time: "Beside",
-    image: remoteImg.anjaniStudio
+    image: img.hero
   },
   {
     title: "Hyderabad Studio",

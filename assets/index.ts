@@ -38,12 +38,6 @@ export const img = {
   lbNagar: `${base}/43-facts-about-l-b-nagar-1689241399_ewmwiz-7cd72995.jpg`,
 } as const;
 
-/** Remote fallback for images that failed to download */
-export const remoteImg = {
-  anjaniStudio:
-    'https://anjalifilmstudio.com/uploads/venuehighlights/1765644487_WhatsApp%20Image%202025-12-13%20at%2021.55.26.jpeg',
-} as const;
-
 export const GALLERY_IMAGES = [
   img.bedroom2,
   img.dayView,
