@@ -381,7 +381,7 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ className = "" }) => {
               <button onClick={nextMonth} className="p-2 hover:bg-gray-100 rounded-full active:scale-90 transition-transform" aria-label="Next Month"><ChevronRight className="w-5 h-5" /></button>
             </div>
             <div className="grid grid-cols-7 gap-0.5 sm:gap-1 text-center mb-2">
-              {['S','M','T','W','T','F','S'].map(d => <span key={d} className="text-[10px] font-black text-gray-300 uppercase">{d}</span>)}
+              {['S','M','T','W','T','F','S'].map((d, i) => <span key={i} className="text-[10px] font-black text-gray-300 uppercase">{d}</span>)}
             </div>
             <div className="grid grid-cols-7 gap-0.5 sm:gap-1">
               {Array.from({ length: getFirstDayOfMonth(currentMonth) }).map((_, i) => <div key={`empty-${i}`} />)}
