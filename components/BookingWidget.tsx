@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Check, Calendar, Star, Loader2, AlertCircle } from 'lucide-react';
 import { GuestData, BookingStage } from '../types';
 import { GOOGLE_SCRIPT_URL } from '../constants';
+import { logBookingToSupabase } from '../lib/syncToSupabase';
 
 interface BookingWidgetProps {
   className?: string;
@@ -200,6 +201,16 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ className = "" }) => {
                 }
                 setBookedDates(newBooked);
             }
+            logBookingToSupabase({
+                name: guestData.name,
+                phone: guestData.phone,
+                email: guestData.email,
+                checkIn: formattedCheckIn,
+                checkOut: formattedCheckOut,
+                guests: guestData.guests,
+                requirements: guestData.req,
+                source: 'booking-widget',
+            });
             setStage('confirmed');
         } else {
             setErrorMessage("Booking failed. Please try again or contact us directly.");

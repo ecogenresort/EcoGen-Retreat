@@ -5,6 +5,7 @@ import {
   RotateCcw, IndianRupee, Waves, Calendar, PhoneCall, Mail, ClipboardList
 } from 'lucide-react';
 import { GOOGLE_SCRIPT_URL } from '../constants';
+import { logBookingToSupabase, logLeadToSupabase } from '../lib/syncToSupabase';
 
 interface Message {
   id: number;
@@ -310,6 +311,15 @@ const Chatbot: React.FC = () => {
       const result = await response.json();
       if (!response.ok || result.status !== 'success') throw new Error(result.message || 'Failed');
 
+      logLeadToSupabase({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        subject: data.subject,
+        message: data.message,
+        source: 'chatbot-lead',
+      });
+
       addBotMessage("✅ Excellent! Your details have been submitted. Our team will contact you shortly.");
       setMessages(prev => [...prev, { id: Date.now() + 1, type: 'bot', text: "Is there anything else I can assist you with today?", options: ["Retreat Location", "Nearby Attractions"] }]);
     } catch (error) {
@@ -558,6 +568,16 @@ Thank you for choosing EcoGen Retreat.
                             });
                             const result = await response.json();
                             if (result.status === 'success') {
+                              logBookingToSupabase({
+                                name: chatName,
+                                phone: chatPhone,
+                                email: chatEmail,
+                                checkIn: chatInDate,
+                                checkOut: chatOutDate,
+                                guests: chatGuests,
+                                requirements: chatRemarks,
+                                source: 'chatbot-booking-widget',
+                              });
                               setIsChatBookingSubmitted(true);
                               setTimeout(() => {
                                 setMessages(prev => [...prev, { id: Date.now() + 10, type: 'bot', text: `🎉 Direct booking request received for ${chatName}! I've generated an itinerary below that you can keep. Feel free to contact our host to expedite approval.` }]);

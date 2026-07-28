@@ -11,6 +11,7 @@ import BookingWidget from '../components/BookingWidget';
 import Lightbox from '../components/Lightbox';
 import { GOOGLE_SCRIPT_URL } from '../constants';
 import { img, remoteImg } from '../assets';
+import { logLeadToSupabase } from '../lib/syncToSupabase';
 
 const attractions = [
   {
@@ -118,6 +119,7 @@ const Home: React.FC = () => {
         });
         const result = await response.json();
         if (result.status === 'success') {
+            logLeadToSupabase({ name, email, phone, subject, message, source: 'home-contact-form' });
             setIsSent(true);
         } else {
             alert("Something went wrong. Please call us directly.");

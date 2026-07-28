@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MapPin, Phone, Mail, ChevronDown, Send, Loader2, Check } from 'lucide-react';
 import RevealSection from '../components/RevealSection';
 import { GOOGLE_SCRIPT_URL } from '../constants';
+import { logLeadToSupabase } from '../lib/syncToSupabase';
 
 const Contact: React.FC = () => {
   const [isSent, setIsSent] = useState(false);
@@ -51,6 +52,7 @@ const Contact: React.FC = () => {
         });
         const result = await response.json();
         if (result.status === 'success') {
+            logLeadToSupabase({ name, email, phone, subject, message, source: 'contact-page' });
             setIsSent(true);
         } else {
             alert("Something went wrong. Please call us.");
