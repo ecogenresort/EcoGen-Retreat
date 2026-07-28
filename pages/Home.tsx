@@ -10,57 +10,58 @@ import {
 import BookingWidget from '../components/BookingWidget';
 import Lightbox from '../components/Lightbox';
 import { GOOGLE_SCRIPT_URL } from '../constants';
+import { img, remoteImg } from '../assets';
 
 const attractions = [
   {
     title: "Sanghi Temple",
     time: "5 Mins Drive",
-    image: "https://res.cloudinary.com/dxtvxv8mf/image/upload/v1769459857/Screenshot_2026-01-27_020038_vgjkm1.png"
+    image: img.sanghiTemple
   },
   {
     title: "Ramoji Film City",
     time: "10 Mins Drive",
-    image: "https://blog.ramojifilmcity.com/rfcblog_cms/uploads/1757483951_Bahubali%20movie%20sets%20at%20Ramoji%20Film%20City%20Hyderabad%20%E2%80%93%20iconic%20film%20shooting%20location.jpg"
+    image: img.ramojiFilmCity
   },
   {
     title: "Wonderla Park",
     time: "15 Mins Drive",
-    image: "https://www.hyderabadtourism.travel/images/v2/places-to-visit/wonderla-hyderabad-amusement-water-park-header-hyderabad-tourism.jpg"
+    image: img.wonderla
   },
   {
     title: "Anjani Studio",
     time: "Beside",
-    image: "https://anjalifilmstudio.com/uploads/venuehighlights/1765644487_WhatsApp%20Image%202025-12-13%20at%2021.55.26.jpeg"
+    image: remoteImg.anjaniStudio
   },
   {
     title: "Hyderabad Studio",
     time: "Opposite",
-    image: "https://res.cloudinary.com/duoemrmsy/image/upload/10_jjrss4"
+    image: img.hyderabadStudio
   },
   {
     title: "Koheda Gutta",
     time: "5 Mins Drive",
-    image: "https://res.cloudinary.com/duoemrmsy/image/upload/maxresdefault_pdfu20"
+    image: img.kohedaGutta
   },
   {
     title: "Hanuman Temple View Point",
     time: "8 Mins Drive",
-    image: "https://res.cloudinary.com/duoemrmsy/image/upload/e46b8e9cd325297f91f191406d9fc563_mni3vn"
+    image: img.hanumanViewpoint
   },
   {
     title: "Pedda Amberpet ORR Exit",
     time: "8 Mins Drive",
-    image: "https://res.cloudinary.com/duoemrmsy/image/upload/ORR-Exit-No.1-3-696x583_eibrzg"
+    image: img.peddaAmberpetOrr
   },
   {
     title: "Bonguluru ORR Exit",
     time: "8 Mins Drive",
-    image: "https://res.cloudinary.com/duoemrmsy/image/upload/maxresdefault_zqexhn"
+    image: img.bonguluruOrr
   },
   {
     title: "L. B. Nagar Circle",
     time: "20 Mins Drive",
-    image: "https://res.cloudinary.com/duoemrmsy/image/upload/43-facts-about-l-b-nagar-1689241399_ewmwiz"
+    image: img.lbNagar
   }
 ];
 
@@ -130,28 +131,28 @@ const Home: React.FC = () => {
       id: "weekend",
       title: "Weekend Getaways",
       description: "Escape the city and reconnect with nature. Stretches of serene mornings, clean breezes, and unmatched isolation.",
-      image: "https://ecogenretreat.com/wp-content/uploads/2025/12/DSC01999-768x512.jpg",
+      image: img.hero,
       icon: Trees,
     },
     {
       id: "family",
       title: "Family Vacations",
       description: "Private spaces designed for memorable family moments. Safe, sprawling lawns for kids and cozy fire camps for storytelling.",
-      image: "https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02074-390x293.jpg",
+      image: img.familyLawn,
       icon: Users,
     },
     {
       id: "events",
       title: "Celebrations & Events",
       description: "Birthdays, pool parties, intimate weddings, and special events. Transform your milestone days in custom resort setups.",
-      image: "https://ecogenretreat.com/wp-content/uploads/2025/12/ecogen-wedding.jpg",
+      image: img.wedding,
       icon: PartyPopper,
     },
     {
       id: "corporate",
       title: "Corporate Retreats",
       description: "Team bonding, alignment, and leadership offsites in a peaceful, focused container that ignites collaboration.",
-      image: "https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02064-390x293.jpg",
+      image: img.corporateRetreat,
       icon: Briefcase,
     }
   ];
@@ -204,18 +205,18 @@ const Home: React.FC = () => {
 
   // Gallery items with Category Mapping
   const GALLERY_GRID = [
-    { src: "https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02129-scaled.jpg", category: "Bedroom" },
-    { src: "https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02019-1536x1025.jpg", category: "Night Ambience" },
-    { src: "https://ecogenretreat.com/wp-content/uploads/2025/12/image00002-1536x1024.jpeg", category: "Fire Camp" },
-    { src: "https://ecogenretreat.com/wp-content/uploads/2025/12/img1-1.jpg", category: "Private Pool" },
-    { src: "https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02123-scaled.jpg", category: "Bedroom" },
-    { src: "https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02041-1024x683.jpg", category: "Open Lawn" },
-    { src: "https://ecogenretreat.com/wp-content/uploads/2025/12/ecogen-wedding.jpg", category: "Event Hall" },
-    { src: "https://ecogenretreat.com/wp-content/uploads/2025/12/ecogen-pool.jpg", category: "Private Pool" },
-    { src: "https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02074-390x293.jpg", category: "Open Lawn" },
-    { src: "https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02059-1024x683.jpg", category: "Event Hall" },
-    { src: "https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02098-1024x683.jpg", category: "Bedroom" },
-    { src: "https://ecogenretreat.com/wp-content/uploads/2025/12/DSC01999-768x512.jpg", category: "Night Ambience" }
+    { src: img.bedroom2, category: "Bedroom" },
+    { src: img.dayView, category: "Night Ambience" },
+    { src: img.nightView, category: "Fire Camp" },
+    { src: img.privatePool, category: "Private Pool" },
+    { src: img.bedroom1, category: "Bedroom" },
+    { src: img.openLawn, category: "Open Lawn" },
+    { src: img.wedding, category: "Event Hall" },
+    { src: img.pool, category: "Private Pool" },
+    { src: img.familyLawn, category: "Open Lawn" },
+    { src: img.eventHall, category: "Event Hall" },
+    { src: img.bedroomSlide2, category: "Bedroom" },
+    { src: img.hero, category: "Night Ambience" }
   ];
 
   const CATEGORIES = ['All', 'Private Pool', 'Open Lawn', 'Bedroom', 'Fire Camp', 'Event Hall', 'Night Ambience'];
@@ -314,7 +315,7 @@ const Home: React.FC = () => {
         {/* Background imagery */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://ecogenretreat.com/wp-content/uploads/2025/12/DSC01999-768x512.jpg" 
+            src={img.hero} 
             className="w-full h-full object-cover ken-burns" 
             alt="Private Pool and Eco Luxury Oasis"
             loading="eager"
@@ -448,7 +449,7 @@ const Home: React.FC = () => {
                 className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border-4 border-gold/15"
               >
                 <img 
-                  src="https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02019-1536x1025.jpg" 
+                  src={img.dayView} 
                   alt="Exclusive Villa Front and Landscaped Pool"
                   className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700"
                   loading="lazy"
@@ -536,7 +537,7 @@ const Home: React.FC = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0.3 }}
                 transition={{ duration: 0.8 }}
-                src={isDay ? "https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02019-1536x1025.jpg" : "https://ecogenretreat.com/wp-content/uploads/2025/12/image00002-1536x1024.jpeg"} 
+                src={isDay ? img.dayView : img.nightView} 
                 className="w-full h-full object-cover transition-transform duration-[4000ms] ease-out" 
                 alt="Day Night Resort Landscape"
               />
@@ -643,14 +644,14 @@ const Home: React.FC = () => {
             <div className="lg:col-span-7 grid grid-cols-2 gap-4 md:gap-6">
               <div className="space-y-4 md:space-y-6">
                 <img 
-                  src="https://ecogenretreat.com/wp-content/uploads/2025/12/img1-1.jpg" 
+                  src={img.privatePool} 
                   alt="Resort Pool" 
                   className="rounded-[2rem] shadow-xl w-full object-cover h-64 md:h-80 hover:scale-[1.02] transition"
                   loading="lazy"
                   referrerPolicy="no-referrer"
                 />
                 <img 
-                  src="https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02123-scaled.jpg" 
+                  src={img.bedroom1} 
                   alt="Interior Bed Suite" 
                   className="rounded-[2rem] shadow-xl w-full object-cover h-40 md:h-52 hover:scale-[1.02] transition"
                   loading="lazy"
@@ -659,14 +660,14 @@ const Home: React.FC = () => {
               </div>
               <div className="space-y-4 md:space-y-6 pt-8 md:pt-12">
                 <img 
-                  src="https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02041-1024x683.jpg" 
+                  src={img.openLawn} 
                   alt="Resort Lawn and Garden" 
                   className="rounded-[2rem] shadow-xl w-full object-cover h-40 md:h-52 hover:scale-[1.02] transition"
                   loading="lazy"
                   referrerPolicy="no-referrer"
                 />
                 <img 
-                  src="https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02059-1024x683.jpg" 
+                  src={img.eventHall} 
                   alt="Dining Hall Space" 
                   className="rounded-[2rem] shadow-xl w-full object-cover h-64 md:h-80 hover:scale-[1.02] transition"
                   loading="lazy"
@@ -935,7 +936,7 @@ const Home: React.FC = () => {
       <section className="relative py-28 px-6 lg:px-16 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://ecogenretreat.com/wp-content/uploads/2025/12/image00002-1536x1024.jpeg" 
+            src={img.nightView} 
             className="w-full h-full object-cover" 
             alt="Intimate night fires camp"
             loading="lazy"

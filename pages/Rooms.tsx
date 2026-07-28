@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Layout, ChefHat, Sparkles, Check } from 'lucide-react';
 import RevealSection from '../components/RevealSection';
+import { img } from '../assets';
 
 const Rooms: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const images = [
-    "https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02110-1024x683.jpg",
-    "https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02098-1024x683.jpg",
-    "https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02059-1024x683.jpg"
-  ];
+  const images = [img.bedroomSlide1, img.bedroomSlide2, img.bedroomSlide3];
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % images.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
@@ -16,7 +13,7 @@ const Rooms: React.FC = () => {
   return (
     <div className="animate-in fade-in duration-700">
       <div className="relative h-[50vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
-        <img src="https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02129-scaled.jpg" className="absolute inset-0 w-full h-full object-cover" alt="Rooms Header" loading="eager" referrerPolicy="no-referrer" />
+        <img src={img.bedroom2} className="absolute inset-0 w-full h-full object-cover" alt="Rooms Header" loading="eager" />
         <div className="absolute inset-0 bg-black/60"></div>
         <div className="relative text-center text-white z-10">
           <RevealSection>
@@ -70,7 +67,7 @@ const Rooms: React.FC = () => {
           
           <RevealSection delay={200}>
             <div className="relative group rounded-[2rem] md:rounded-[3rem] shadow-2xl border-4 md:border-8 border-sand overflow-hidden aspect-[4/3]">
-              <img src={images[currentSlide]} className="w-full h-full object-cover transition-all duration-500" alt="Room Slide" loading="lazy" referrerPolicy="no-referrer" />
+              <img src={images[currentSlide]} className="w-full h-full object-cover transition-all duration-500" alt="Room Slide" loading="lazy" />
               
               <button onClick={prevSlide} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-forest p-3 rounded-full backdrop-blur shadow-lg transition-all opacity-0 group-hover:opacity-100">
                 <ChevronLeft className="w-6 h-6" />
@@ -91,13 +88,13 @@ const Rooms: React.FC = () => {
         <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
           <RevealSection>
             <div className="rounded-[2rem] md:rounded-[3rem] overflow-hidden h-[300px] lg:h-[500px] relative group shadow-2xl border-4 border-sand">
-              <img src="https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02019-1536x1025.jpg" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Day View" loading="lazy" referrerPolicy="no-referrer" />
+              <img src={img.dayView} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Day View" loading="lazy" />
               <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur px-6 py-2 rounded-full text-sm font-bold uppercase tracking-widest text-forest font-sans">Day View</div>
             </div>
           </RevealSection>
           <RevealSection delay={200}>
             <div className="rounded-[2rem] md:rounded-[3rem] overflow-hidden h-[300px] lg:h-[500px] relative group shadow-2xl border-4 border-forest/10">
-              <img src="https://ecogenretreat.com/wp-content/uploads/2025/12/image00002-1536x1024.jpeg" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Night View" loading="lazy" referrerPolicy="no-referrer" />
+              <img src={img.nightView} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Night View" loading="lazy" />
               <div className="absolute bottom-6 left-6 bg-forest/90 backdrop-blur px-6 py-2 rounded-full text-sm font-bold uppercase tracking-widest text-white font-sans">Night Ambience</div>
             </div>
           </RevealSection>
@@ -109,7 +106,7 @@ const Rooms: React.FC = () => {
             <p className="text-xl md:text-2xl text-gray-500 max-w-4xl mx-auto italic font-subtitle mb-8 md:mb-12">
               Dive into luxury. Our crystal-clear private pool is perfect for relaxing swims or lively pool parties.
             </p>
-            <img src="https://ecogenretreat.com/wp-content/uploads/2025/12/img1-1.jpg" className="w-full h-[300px] md:h-[600px] object-cover rounded-[2rem] md:rounded-[3rem] shadow-xl" alt="Private Swimming Pool" loading="lazy" referrerPolicy="no-referrer" />
+            <img src={img.privatePool} className="w-full h-[300px] md:h-[600px] object-cover rounded-[2rem] md:rounded-[3rem] shadow-xl" alt="Private Swimming Pool" loading="lazy" />
           </div>
         </RevealSection>
 
@@ -119,7 +116,7 @@ const Rooms: React.FC = () => {
             <p className="text-xl md:text-2xl text-gray-500 max-w-4xl mx-auto italic font-subtitle mb-8 md:mb-12">
               A refreshing open lawn surrounded by greenery, ideal for events and photoshoots.
             </p>
-            <img src="https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02041-1024x683.jpg" className="w-full h-[300px] md:h-[600px] object-cover rounded-[2rem] md:rounded-[3rem] shadow-xl" alt="Lush Garden" loading="lazy" referrerPolicy="no-referrer" />
+            <img src={img.openLawn} className="w-full h-[300px] md:h-[600px] object-cover rounded-[2rem] md:rounded-[3rem] shadow-xl" alt="Lush Garden" loading="lazy" />
           </div>
         </RevealSection>
       </div>

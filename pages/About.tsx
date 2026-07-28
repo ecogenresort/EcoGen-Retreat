@@ -1,5 +1,6 @@
 import React from 'react';
 import RevealSection from '../components/RevealSection';
+import { img } from '../assets';
 
 const FAQS = [
   {
@@ -66,7 +67,7 @@ const About: React.FC = () => {
           <div className="lg:sticky lg:top-32">
             <RevealSection delay={200}>
               <div className="rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-2xl border-4 border-gold/20">
-                <img src="https://ecogenretreat.com/wp-content/uploads/2025/12/DSC02019-1536x1025.jpg" className="w-full aspect-square object-cover" alt="About Ecogen" loading="lazy" referrerPolicy="no-referrer" />
+                <img src={img.dayView} className="w-full aspect-square object-cover" alt="About Ecogen" loading="lazy" />
               </div>
             </RevealSection>
           </div>
