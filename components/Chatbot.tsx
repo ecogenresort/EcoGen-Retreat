@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { GOOGLE_SCRIPT_URL } from '../constants';
 import { logBookingToSupabase, logLeadToSupabase } from '../lib/syncToSupabase';
+import { downloadItineraryPdf } from '../lib/generateItineraryPdf';
 
 interface Message {
   id: number;
@@ -399,26 +400,18 @@ const Chatbot: React.FC = () => {
                       <div className="space-y-2.5">
                         <button 
                           onClick={() => {
-                            const content = `
-ECOGEN RETREAT - CONCIERGE RESERVATION INQUIRY
------------------------------------------------
-Guest Name: ${chatName}
-Phone: ${chatPhone}
-Email: ${chatEmail}
-Check-In: ${chatInDate}
-Check-Out: ${chatOutDate}
-Guests: ${chatGuests}
-Remarks: ${chatRemarks || 'None'}
-
-Please present this request to the host.
-Thank you for choosing EcoGen Retreat.
-                            `;
-                            const blob = new Blob([content], { type: 'text/plain' });
-                            const url = URL.createObjectURL(blob);
-                            const a = document.createElement('a');
-                            a.href = url;
-                            a.download = `EcoGen_Chat_Inquiry_${chatName.replace(/\s+/g, '_')}.txt`;
-                            a.click();
+                            downloadItineraryPdf({
+                              documentTitle: 'Concierge Reservation Inquiry',
+                              guestName: chatName,
+                              phone: chatPhone,
+                              email: chatEmail,
+                              checkIn: chatInDate,
+                              checkOut: chatOutDate,
+                              guests: chatGuests,
+                              requirements: chatRemarks,
+                              footerNote: 'Please present this to the host. Thank you for choosing EcoGen Retreat.',
+                              filenamePrefix: 'EcoGen_Chat_Inquiry',
+                            });
                           }}
                           className="w-full bg-gold text-zinc-950 font-sans font-bold py-3.5 px-4 rounded-xl text-xs uppercase tracking-wider hover:brightness-110 transition shadow-md"
                         >

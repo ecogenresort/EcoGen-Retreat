@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, Check, Calendar, Star, Loader2, AlertCircle 
 import { GuestData, BookingStage } from '../types';
 import { GOOGLE_SCRIPT_URL } from '../constants';
 import { logBookingToSupabase } from '../lib/syncToSupabase';
+import { downloadItineraryPdf } from '../lib/generateItineraryPdf';
 
 interface BookingWidgetProps {
   className?: string;
@@ -227,24 +228,18 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ className = "" }) => {
 
   const downloadItinerary = () => {
     if (!checkIn || !checkOut) return;
-    const content = `
-ECOGEN RETREAT - BOOKING ITINERARY
-----------------------------------
-Guest Name: ${guestData.name}
-Phone: ${guestData.phone}
-Check-In Date: ${checkIn.toLocaleDateString()}
-Check-Out Date: ${checkOut.toLocaleDateString()}
-Total Guests: ${guestData.guests}
-Special Requirements: ${guestData.req || 'None'}
-
-Thank you for choosing EcoGen. We look forward to hosting you.
-    `;
-    const blob = new Blob([content], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `EcoGen_Itinerary_${guestData.name.replace(/\s+/g, '_')}.txt`;
-    a.click();
+    downloadItineraryPdf({
+      documentTitle: 'Booking Itinerary',
+      guestName: guestData.name,
+      phone: guestData.phone,
+      email: guestData.email,
+      checkIn: checkIn.toLocaleDateString(),
+      checkOut: checkOut.toLocaleDateString(),
+      guests: guestData.guests,
+      requirements: guestData.req,
+      footerNote: 'Thank you for choosing EcoGen. We look forward to hosting you.',
+      filenamePrefix: 'EcoGen_Itinerary',
+    });
   };
 
   const nights = (checkIn && checkOut) ? Math.ceil((checkOut.getTime() - checkIn.getTime()) / (1000 * 60 * 60 * 24)) : 0;
