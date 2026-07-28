@@ -1,6 +1,7 @@
 import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Layout from './Layout';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Rooms from './pages/Rooms';
 import Events from './pages/Events';
@@ -29,6 +30,7 @@ function SiteLayout() {
 function App() {
   return (
     <HashRouter>
+      <ScrollToTop />
       <Routes>
         {/* Admin dashboard is standalone — no public Navbar/Footer/Chatbot */}
         <Route path="/admin" element={<Admin />} />
