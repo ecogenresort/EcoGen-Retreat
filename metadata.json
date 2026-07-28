@@ -1,0 +1,8 @@
+{
+  "name": "EcoGen Retreat",
+  "description": "A luxury nature retreat booking application featuring a multi-step booking engine, gallery, and event showcases.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
