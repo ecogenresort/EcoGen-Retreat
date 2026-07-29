@@ -217,6 +217,16 @@ const Contact: React.FC = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
+              {/* Cross-origin iframe content can't carry its own click handler,
+                  so this transparent overlay makes the whole preview clickable
+                  and sends visitors to the same Google Maps link as the button above. */}
+              <a
+                href="https://www.google.com/maps?cid=1257650818496697342&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&hl=en&gl=IN&source=embed"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Open EcoGen Retreat location in Google Maps"
+                className="absolute inset-0 z-10 cursor-pointer bg-transparent hover:bg-black/5 transition-colors"
+              ></a>
             </div>
           </div>
         </RevealSection>
