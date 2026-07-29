@@ -1,11 +1,12 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Instagram, Facebook } from 'lucide-react';
+import { MapPin, Phone, Mail, Instagram, Facebook, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const socialLinks = [
-    { Icon: Instagram, href: "https://www.instagram.com/ecogen_retreat/" },
-    { Icon: Facebook, href: "https://www.facebook.com/people/Ecogen-retreat/61585211900664/#" }
+    { Icon: Instagram, href: "https://www.instagram.com/ecogen_retreat?igsh=MXhydHQwb2VsMXRodQ==" },
+    { Icon: Facebook, href: "https://www.facebook.com/share/1BT8rU7KHi/" },
+    { Icon: Youtube, href: "https://youtube.com/@ecogenreatreat?si=nSwSYtJjqVNaRRxQ" }
   ];
 
   return (
