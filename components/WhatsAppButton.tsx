@@ -4,8 +4,24 @@ import { MessageCircle } from 'lucide-react';
 
 const WhatsAppButton: React.FC = () => {
   const phoneNumber = "8106935999";
+  const welcomeMessage = `Welcome to EcoGen Retreat – Your Perfect Resort & Staycation Destination in Hyderabad. 🌿
+
+To assist you with your booking, please share the following details:
+
+• Name:
+• Date of Visit:
+• Number of Guests :
+• Purpose of Visit: (Event / Staycation)
+
+For booking confirmations or any queries, please contact us at +91 81069 35999.
+
+Follow us on Instagram for updates and a glimpse of the EcoGen experience:
+@ecogen_retreat
+https://www.instagram.com/ecogen_retreat?igsh=MXhydHQwb2VsMXRodQ%3D%3D&utm_source=qr
+
+We look forward to hosting you at EcoGen Retreat!`;
   // WhatsApp Link format: https://wa.me/918106935999 with a pre-filled welcome message
-  const whatsappUrl = `https://wa.me/91${phoneNumber}?text=Hi%20EcoGen%20Retreat%2C%20I%20would%20like%20to%20inquire%20about%20a%20booking%20and%20availability.`;
+  const whatsappUrl = `https://wa.me/91${phoneNumber}?text=${encodeURIComponent(welcomeMessage)}`;
 
   return (
     <div className="fixed bottom-6 left-6 z-[45] font-sans">
