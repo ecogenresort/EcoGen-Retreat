@@ -80,7 +80,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-xl md:text-2xl text-charcoal mb-2 font-sans">Our Sanctuary</h4>
-                    <a href="https://www.google.com/maps?cid=1257650818496697342&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&hl=en&gl=IN&source=embed" target="_blank" rel="noreferrer" className="text-base md:text-lg text-gray-500 font-medium leading-relaxed font-sans hover:text-gold transition-colors block">
+                    <a href="https://maps.app.goo.gl/MimHC8xRgtykwPtFA" target="_blank" rel="noreferrer" className="text-base md:text-lg text-gray-500 font-medium leading-relaxed font-sans hover:text-gold transition-colors block">
                       Beside Anjali film studios, Koheda(V),<br />R.R. District, Telangana 501513.
                     </a>
                   </div>
@@ -195,7 +195,7 @@ const Contact: React.FC = () => {
                 </h3>
               </div>
               <a 
-                href="https://www.google.com/maps?cid=1257650818496697342&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&hl=en&gl=IN&source=embed"
+                href="https://maps.app.goo.gl/MimHC8xRgtykwPtFA"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-forest text-white px-6 py-3.5 rounded-full font-bold text-xs uppercase tracking-wider hover:bg-gold transition shadow-md hover:scale-102 active:scale-98 font-sans w-fit"
@@ -221,7 +221,7 @@ const Contact: React.FC = () => {
                   so this transparent overlay makes the whole preview clickable
                   and sends visitors to the same Google Maps link as the button above. */}
               <a
-                href="https://www.google.com/maps?cid=1257650818496697342&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&hl=en&gl=IN&source=embed"
+                href="https://maps.app.goo.gl/MimHC8xRgtykwPtFA"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Open EcoGen Retreat location in Google Maps"
