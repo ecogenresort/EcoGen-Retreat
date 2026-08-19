@@ -443,9 +443,12 @@ const Chatbot: React.FC = () => {
 
                       <div className="grid grid-cols-2 gap-2.5">
                         <div className="space-y-1">
-                          <label className="block text-[9px] font-black text-gray-400 uppercase tracking-wider mb-1 font-sans">Check-In</label>
+                          <label htmlFor="chat-checkin" className="block text-[9px] font-black text-gray-400 uppercase tracking-wider mb-1 font-sans">Check-In</label>
                           <input
+                            id="chat-checkin"
+                            name="checkIn"
                             type="date"
+                            autoComplete="off"
                             className="w-full text-xs font-bold text-charcoal bg-sand/20 px-3 py-2.5 rounded-xl border border-transparent focus:border-gold/30 focus:bg-white outline-none font-sans"
                             value={chatInDate}
                             min={new Date().toISOString().split('T')[0]}
@@ -453,9 +456,12 @@ const Chatbot: React.FC = () => {
                           />
                         </div>
                         <div className="space-y-1">
-                          <label className="block text-[9px] font-black text-gray-400 uppercase tracking-wider mb-1 font-sans">Check-Out</label>
+                          <label htmlFor="chat-checkout" className="block text-[9px] font-black text-gray-400 uppercase tracking-wider mb-1 font-sans">Check-Out</label>
                           <input
+                            id="chat-checkout"
+                            name="checkOut"
                             type="date"
+                            autoComplete="off"
                             className="w-full text-xs font-bold text-charcoal bg-sand/20 px-3 py-2.5 rounded-xl border border-transparent focus:border-gold/30 focus:bg-white outline-none font-sans"
                             value={chatOutDate}
                             min={chatInDate || new Date().toISOString().split('T')[0]}
@@ -470,8 +476,11 @@ const Chatbot: React.FC = () => {
                       )}
 
                       <div className="space-y-1">
-                        <label className="block text-[9px] font-black text-gray-400 uppercase tracking-wider mb-1 font-sans">Number of Guests</label>
-                        <select 
+                        <label htmlFor="chat-guests" className="block text-[9px] font-black text-gray-400 uppercase tracking-wider mb-1 font-sans">Number of Guests</label>
+                        <select
+                          id="chat-guests"
+                          name="guests"
+                          autoComplete="off"
                           className="w-full text-xs font-bold text-charcoal bg-sand/20 px-3 py-2.5 rounded-xl border border-transparent focus:border-gold/30 focus:bg-white outline-none appearance-none cursor-pointer font-sans"
                           value={chatGuests}
                           onChange={(e) => setChatGuests(Number(e.target.value))}
@@ -484,31 +493,47 @@ const Chatbot: React.FC = () => {
 
                       <div className="space-y-2 border-t border-gray-100 pt-3">
                         <span className="block text-[9px] font-black uppercase text-gray-400 tracking-widest font-sans mb-1">Guest Communication</span>
-                        <input 
-                          type="text" 
-                          placeholder="Your Full Name" 
+                        <label htmlFor="chat-name" className="sr-only">Your Full Name</label>
+                        <input
+                          id="chat-name"
+                          name="name"
+                          type="text"
+                          autoComplete="name"
+                          placeholder="Your Full Name"
                           className="w-full text-xs border border-gray-200 px-3 py-2.5 rounded-xl outline-none font-semibold focus:border-forest"
                           value={chatName}
                           onChange={(e) => setChatName(e.target.value)}
                         />
                         <div className="grid grid-cols-2 gap-2.5">
-                          <input 
-                            type="tel" 
-                            placeholder="Mobile No." 
+                          <label htmlFor="chat-phone" className="sr-only">Mobile Number</label>
+                          <input
+                            id="chat-phone"
+                            name="phone"
+                            type="tel"
+                            autoComplete="tel"
+                            placeholder="Mobile No."
                             className="w-full text-xs border border-gray-200 px-3 py-2.5 rounded-xl outline-none font-semibold focus:border-forest"
                             value={chatPhone}
                             onChange={(e) => setChatPhone(e.target.value)}
                           />
-                          <input 
-                            type="email" 
-                            placeholder="Email Address" 
+                          <label htmlFor="chat-email" className="sr-only">Email Address</label>
+                          <input
+                            id="chat-email"
+                            name="email"
+                            type="email"
+                            autoComplete="email"
+                            placeholder="Email Address"
                             className="w-full text-xs border border-gray-200 px-3 py-2.5 rounded-xl outline-none font-semibold focus:border-forest"
                             value={chatEmail}
                             onChange={(e) => setChatEmail(e.target.value)}
                           />
                         </div>
-                        <textarea 
-                          placeholder="Special requirements (food catering, bonfire setup)?" 
+                        <label htmlFor="chat-remarks" className="sr-only">Special requirements</label>
+                        <textarea
+                          id="chat-remarks"
+                          name="remarks"
+                          autoComplete="off"
+                          placeholder="Special requirements (food catering, bonfire setup)?"
                           rows={2}
                           className="w-full text-xs border border-gray-200 px-3 py-2.5 rounded-xl outline-none font-semibold focus:border-forest resize-none"
                           value={chatRemarks}
@@ -633,11 +658,22 @@ const Chatbot: React.FC = () => {
 
         <div className="p-5 bg-white border-t border-gray-100 pb-10 sm:pb-5 shrink-0">
            <form onSubmit={(e) => { e.preventDefault(); handleSend(); }} className="flex items-center gap-3 relative">
-             <input 
-               type="text" 
+             <input
+               id="chatbot-message-input"
+               name="chatMessage"
+               type="text"
+               autoComplete="off"
+               aria-label={
+                 leadStep === 'name' ? "Full Name" :
+                 leadStep === 'phone' ? "Phone Number" :
+                 leadStep === 'subject' ? "Interest" :
+                 leadStep === 'email' ? "Email Address" :
+                 leadStep === 'message' ? "Message" :
+                 "Your question"
+               }
                className="flex-grow bg-sand/30 border border-transparent rounded-2xl px-6 py-4 focus:border-gold/30 focus:bg-white focus:ring-4 focus:ring-gold/5 outline-none text-charcoal font-semibold placeholder:text-gray-400 transition-all text-[15px]"
                placeholder={
-                 leadStep === 'name' ? "Enter Full Name..." : 
+                 leadStep === 'name' ? "Enter Full Name..." :
                  leadStep === 'phone' ? "Enter Phone Number..." :
                  leadStep === 'subject' ? "Choose Interest..." :
                  leadStep === 'email' ? "Enter Email Address..." :

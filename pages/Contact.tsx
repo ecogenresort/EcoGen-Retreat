@@ -137,26 +137,26 @@ const Contact: React.FC = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Full Name</label>
-                      <input name="name" type="text" className="w-full bg-sand/30 border-none rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all" required />
+                      <label htmlFor="contact-name" className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Full Name</label>
+                      <input id="contact-name" name="name" type="text" autoComplete="name" className="w-full bg-sand/30 border-none rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all" required />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Email Address</label>
-                      <input name="email" type="email" className="w-full bg-sand/30 border-none rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all" required />
+                      <label htmlFor="contact-email" className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Email Address</label>
+                      <input id="contact-email" name="email" type="email" autoComplete="email" className="w-full bg-sand/30 border-none rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all" required />
                       {emailError && <div className="text-red-500 text-[10px] font-black uppercase">Invalid email format</div>}
                     </div>
                   </div>
-                  
+
                   <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Phone Number</label>
-                    <input name="phone" type="tel" className="w-full bg-sand/30 border-none rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all" required />
+                    <label htmlFor="contact-phone" className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Phone Number</label>
+                    <input id="contact-phone" name="phone" type="tel" autoComplete="tel" className="w-full bg-sand/30 border-none rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all" required />
                     {phoneError && <div className="text-red-500 text-[10px] font-black uppercase">Must be a 10-digit Indian number</div>}
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Subject</label>
+                    <label htmlFor="contact-subject" className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Subject</label>
                     <div className="relative">
-                      <select name="subject" className="w-full bg-sand/30 border-none rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all appearance-none cursor-pointer">
+                      <select id="contact-subject" name="subject" autoComplete="off" className="w-full bg-sand/30 border-none rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all appearance-none cursor-pointer">
                         <option>General Inquiry</option>
                         <option>Wedding / Event</option>
                         <option>Corporate Retreat</option>
@@ -167,8 +167,8 @@ const Contact: React.FC = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Your Message</label>
-                    <textarea name="message" rows={4} className="w-full bg-sand/30 border-none rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all resize-none" required></textarea>
+                    <label htmlFor="contact-message" className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Your Message</label>
+                    <textarea id="contact-message" name="message" rows={4} autoComplete="off" className="w-full bg-sand/30 border-none rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all resize-none" required></textarea>
                   </div>
 
                   <button type="submit" disabled={isLoading} className="w-full bg-forest text-white py-5 rounded-xl font-bold text-lg hover:bg-forestDeep transition shadow-xl flex justify-center items-center gap-2 group font-sans disabled:opacity-70">

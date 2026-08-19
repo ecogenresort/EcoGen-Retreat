@@ -1078,26 +1078,26 @@ const Home: React.FC = () => {
                   <form onSubmit={handleContactSubmit} className="space-y-6 text-left">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Full Name</label>
-                        <input name="name" type="text" className="w-full bg-[#FAF8F2] border border-gray-150 rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all text-sm" required />
+                        <label htmlFor="home-contact-name" className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Full Name</label>
+                        <input id="home-contact-name" name="name" type="text" autoComplete="name" className="w-full bg-[#FAF8F2] border border-gray-150 rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all text-sm" required />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Email Address</label>
-                        <input name="email" type="email" className="w-full bg-[#FAF8F2] border border-gray-150 rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all text-sm" required />
+                        <label htmlFor="home-contact-email" className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Email Address</label>
+                        <input id="home-contact-email" name="email" type="email" autoComplete="email" className="w-full bg-[#FAF8F2] border border-gray-150 rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all text-sm" required />
                         {emailError && <div className="text-red-500 text-[10px] font-black uppercase font-sans">Invalid email format</div>}
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Phone Number</label>
-                      <input name="phone" type="tel" placeholder="10 Digits Mobile" className="w-full bg-[#FAF8F2] border border-gray-150 rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all text-sm" required />
+                      <label htmlFor="home-contact-phone" className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Phone Number</label>
+                      <input id="home-contact-phone" name="phone" type="tel" autoComplete="tel" placeholder="10 Digits Mobile" className="w-full bg-[#FAF8F2] border border-gray-150 rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all text-sm" required />
                       {phoneError && <div className="text-red-500 text-[10px] font-black uppercase font-sans">Must be a 10-digit Indian number</div>}
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Subject</label>
+                      <label htmlFor="home-contact-subject" className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Subject</label>
                       <div className="relative">
-                        <select name="subject" className="w-full bg-[#FAF8F2] border border-gray-150 rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all cursor-pointer text-sm appearance-none">
+                        <select id="home-contact-subject" name="subject" autoComplete="off" className="w-full bg-[#FAF8F2] border border-gray-150 rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all cursor-pointer text-sm appearance-none">
                           <option>Weekend Getaway Reservation</option>
                           <option>Private Birthday Pool Party</option>
                           <option>Elegant Wedding Reception</option>
@@ -1110,8 +1110,8 @@ const Home: React.FC = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Your Message / Event Details</label>
-                      <textarea name="message" rows={4} placeholder="Number of guests, tentative dates, catering preferences..." className="w-full bg-[#FAF8F2] border border-gray-150 rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all resize-none text-sm" required></textarea>
+                      <label htmlFor="home-contact-message" className="text-xs font-black uppercase tracking-widest text-gray-400 font-sans">Your Message / Event Details</label>
+                      <textarea id="home-contact-message" name="message" rows={4} autoComplete="off" placeholder="Number of guests, tentative dates, catering preferences..." className="w-full bg-[#FAF8F2] border border-gray-150 rounded-xl px-4 py-4 focus:ring-2 focus:ring-forest/20 outline-none font-bold text-charcoal transition-all resize-none text-sm" required></textarea>
                     </div>
 
                     <button 

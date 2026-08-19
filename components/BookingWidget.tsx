@@ -289,17 +289,25 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ className = "" }) => {
             {checkIn?.toLocaleDateString()} - {checkOut?.toLocaleDateString()}
           </div>
 
-          <input 
-            type="text" 
-            placeholder="Full Name" 
+          <label htmlFor="booking-name" className="sr-only">Full Name</label>
+          <input
+            id="booking-name"
+            name="name"
+            type="text"
+            autoComplete="name"
+            placeholder="Full Name"
             className="w-full border border-gray-200 p-3 md:p-4 rounded-xl outline-none font-semibold focus:border-forest focus:ring-4 focus:ring-forest/5 transition-all bg-white"
             value={guestData.name}
             onChange={(e) => setGuestData({...guestData, name: e.target.value})}
           />
           <div>
-            <input 
-              type="tel" 
-              placeholder="Mobile Number" 
+            <label htmlFor="booking-phone" className="sr-only">Mobile Number</label>
+            <input
+              id="booking-phone"
+              name="phone"
+              type="tel"
+              autoComplete="tel"
+              placeholder="Mobile Number"
               className="w-full border border-gray-200 p-3 md:p-4 rounded-xl outline-none font-semibold focus:border-forest focus:ring-4 focus:ring-forest/5 transition-all bg-white"
               value={guestData.phone}
               onChange={(e) => setGuestData({...guestData, phone: e.target.value})}
@@ -307,18 +315,26 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ className = "" }) => {
             {phoneError && <div className="text-red-500 text-[10px] font-black uppercase mt-1">Invalid Indian number</div>}
           </div>
           <div>
-            <input 
-              type="email" 
-              placeholder="Email Address" 
+            <label htmlFor="booking-email" className="sr-only">Email Address</label>
+            <input
+              id="booking-email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              placeholder="Email Address"
               className="w-full border border-gray-200 p-3 md:p-4 rounded-xl outline-none font-semibold focus:border-forest focus:ring-4 focus:ring-forest/5 transition-all bg-white"
               value={guestData.email}
               onChange={(e) => setGuestData({...guestData, email: e.target.value})}
             />
             {emailError && <div className="text-red-500 text-[10px] font-black uppercase mt-1">Invalid email format</div>}
           </div>
-          <textarea 
-            placeholder="Special requirements?" 
-            rows={3} 
+          <label htmlFor="booking-requirements" className="sr-only">Special requirements</label>
+          <textarea
+            id="booking-requirements"
+            name="requirements"
+            autoComplete="off"
+            placeholder="Special requirements?"
+            rows={3}
             className="w-full border border-gray-200 p-3 md:p-4 rounded-xl outline-none font-semibold focus:border-forest focus:ring-4 focus:ring-forest/5 transition-all bg-white resize-none"
             value={guestData.req}
             onChange={(e) => setGuestData({...guestData, req: e.target.value})}
@@ -418,13 +434,16 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ className = "" }) => {
         )}
 
         <div className="bg-white border border-gray-100 p-4 md:p-6 rounded-3xl flex flex-col gap-2 shadow-sm font-sans">
-          <span className="block text-[9px] font-black uppercase text-gray-300 tracking-widest font-sans">Occupancy</span>
+          <label htmlFor="booking-guests" className="block text-[9px] font-black uppercase text-gray-300 tracking-widest font-sans">Occupancy</label>
           <div className="flex items-center gap-3">
-            <input 
-              type="number" 
-              placeholder="0" 
-              min="1" 
-              max="15" 
+            <input
+              id="booking-guests"
+              name="guests"
+              type="number"
+              placeholder="0"
+              min="1"
+              max="15"
+              autoComplete="off"
               className="w-full text-lg md:text-xl font-bold text-charcoal bg-sand/20 px-4 md:px-6 py-3 md:py-4 rounded-xl focus:ring-2 focus:ring-forest/20 outline-none"
               value={guestData.guests}
               onChange={(e) => setGuestData({ ...guestData, guests: parseInt(e.target.value) || 0 })}
