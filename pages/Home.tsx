@@ -1035,8 +1035,8 @@ const Home: React.FC = () => {
                   </div>
                   <div>
                     <span className="block font-bold text-gray-800 text-sm uppercase tracking-wider font-sans mb-1">Email</span>
-                    <a href="mailto:ecogen9999@gmail.com" className="text-gray-500 hover:text-forest transition text-sm block">
-                      ecogen9999@gmail.com
+                    <a href="mailto:ecogen999@gmail.com" className="text-gray-500 hover:text-forest transition text-sm block">
+                      ecogen999@gmail.com
                     </a>
                   </div>
                 </div>

@@ -89,7 +89,7 @@ const Footer: React.FC = () => {
             </li>
             <li className="flex items-center gap-3">
               <Mail className="w-5 h-5 text-gold shrink-0" />
-              <a href="mailto:ecogen9999@gmail.com" className="opacity-80 hover:text-gold transition">ecogen9999@gmail.com</a>
+              <a href="mailto:ecogen999@gmail.com" className="opacity-80 hover:text-gold transition">ecogen999@gmail.com</a>
             </li>
           </ul>
         </div>
