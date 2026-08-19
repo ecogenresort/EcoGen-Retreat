@@ -9,9 +9,6 @@ interface BookingWidgetProps {
   className?: string;
 }
 
-const PRICE_PER_NIGHT = 15000;
-const SERVICE_FEE = 2500;
-
 const BookingWidget: React.FC<BookingWidgetProps> = ({ className = "" }) => {
   const [stage, setStage] = useState<BookingStage>('dates');
   const [checkIn, setCheckIn] = useState<Date | null>(null);
@@ -242,9 +239,6 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ className = "" }) => {
     });
   };
 
-  const nights = (checkIn && checkOut) ? Math.ceil((checkOut.getTime() - checkIn.getTime()) / (1000 * 60 * 60 * 24)) : 0;
-  const totalCost = (nights * PRICE_PER_NIGHT) + SERVICE_FEE;
-
   // --- RENDER STAGES ---
 
   if (stage === 'confirmed') {
@@ -290,15 +284,9 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ className = "" }) => {
             </div>
           )}
           
-          <div className="bg-sand/30 p-4 rounded-xl flex justify-between items-center text-sm font-bold text-charcoal mb-4 border border-sand">
-            <div>
-              <span className="block text-[10px] text-gray-400 uppercase tracking-widest">Dates</span>
-              {checkIn?.toLocaleDateString()} - {checkOut?.toLocaleDateString()}
-            </div>
-            <div className="text-right">
-              <span className="block text-[10px] text-gray-400 uppercase tracking-widest">Total</span>
-              ₹{totalCost.toLocaleString()}
-            </div>
+          <div className="bg-sand/30 p-4 rounded-xl text-sm font-bold text-charcoal mb-4 border border-sand">
+            <span className="block text-[10px] text-gray-400 uppercase tracking-widest">Dates</span>
+            {checkIn?.toLocaleDateString()} - {checkOut?.toLocaleDateString()}
           </div>
 
           <input 
@@ -426,14 +414,6 @@ const BookingWidget: React.FC<BookingWidgetProps> = ({ className = "" }) => {
                 );
               })}
             </div>
-          </div>
-        )}
-
-        {nights > 0 && (
-          <div className="bg-sand/20 p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl space-y-3 font-sans animate-in fade-in">
-            <div className="flex justify-between text-xs font-black text-gray-400 uppercase tracking-widest"><span>₹{PRICE_PER_NIGHT.toLocaleString()} x {nights} Nights</span><span>₹{(nights * PRICE_PER_NIGHT).toLocaleString()}</span></div>
-            <div className="flex justify-between text-xs font-black text-gray-400 uppercase tracking-widest"><span>Service Fee</span><span>₹{SERVICE_FEE.toLocaleString()}</span></div>
-            <div className="flex justify-between text-xl md:text-3xl font-serif font-bold text-forest pt-4 md:pt-6 border-t border-forest/10 italic"><span>Total</span><span>₹{totalCost.toLocaleString()}</span></div>
           </div>
         )}
 
