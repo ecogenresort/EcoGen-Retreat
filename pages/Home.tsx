@@ -30,7 +30,7 @@ const attractions = [
     image: img.wonderla
   },
   {
-    title: "Anjani Studio",
+    title: "Anjali Film Studio",
     time: "Beside",
     image: img.hero
   },

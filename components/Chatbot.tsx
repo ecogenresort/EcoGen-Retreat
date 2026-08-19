@@ -65,7 +65,7 @@ const FAQ_DATA = [
   },
   {
     keys: ["attractions", "attraction", "visit", "around", "nearby", "ramoji", "sanghi", "wonderla", "temple", "point", "gutta", "studio", "studios"],
-    ans: "We are ideally situated near excellent regional landmarks: Sanghi Temple (5 mins), Ramoji Film City (10 mins), Wonderla Amusement Park (15 mins), Anjali Studio (Beside), and Koheda Gutta (5 mins)."
+    ans: "We are ideally situated near excellent regional landmarks: Sanghi Temple (5 mins), Ramoji Film City (10 mins), Wonderla Amusement Park (15 mins), Anjali Film Studio (Beside), and Koheda Gutta (5 mins)."
   },
   {
     keys: ["contact", "phone", "mobile", "number", "call", "inquiry", "inquiries", "whatsapp"],
