@@ -5,7 +5,7 @@ import { img } from '../assets';
 const FAQS = [
   {
     q: "What are the check-in and check-out times?",
-    a: "Check-in begins at 2:00 PM, and check-out is by 11:00 AM. We can often accommodate flexible timings upon request, subject to availability."
+    a: "Check-in begins at 12:00 PM, and check-out is by 10:00 AM. We can often accommodate flexible timings upon request, subject to availability."
   },
   {
     q: "Is the kitchen fully equipped?",

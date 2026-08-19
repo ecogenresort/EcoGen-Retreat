@@ -57,7 +57,7 @@ const FAQ_DATA = [
   },
   {
     keys: ["checkin", "checkout", "check-in", "check-out", "time", "times", "hours"],
-    ans: "Standard check-in begins at 2:00 PM and check-out is by 11:00 AM. Early arrivals or delayed departures can be coordinated based on booking availability."
+    ans: "Standard check-in begins at 12:00 PM and check-out is by 10:00 AM. Early arrivals or delayed departures can be coordinated based on booking availability."
   },
   {
     keys: ["pet", "pets", "dog", "dogs", "cat", "animals"],
