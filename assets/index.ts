@@ -36,6 +36,23 @@ export const img = {
   peddaAmberpetOrr: `${base}/ORR-Exit-No.1-3-696x583_eibrzg.png`,
   bonguluruOrr: `${base}/maxresdefault_zqexhn-fa0df2b2.jpg`,
   lbNagar: `${base}/43-facts-about-l-b-nagar-1689241399_ewmwiz-7cd72995.jpg`,
+
+  // Additional gallery photography
+  galleryPool1: `${base}/ecogen-gallery-SRI05138.jpg`,
+  galleryPool2: `${base}/ecogen-gallery-SRI05140.jpg`,
+  galleryPool3: `${base}/ecogen-gallery-SRI05141.jpg`,
+  galleryPool4: `${base}/ecogen-gallery-SRI05144.jpg`,
+  galleryExterior1: `${base}/ecogen-gallery-SRI05148.jpg`,
+  galleryExterior2: `${base}/ecogen-gallery-SRI05152.jpg`,
+  galleryExterior3: `${base}/ecogen-gallery-SRI05153.jpg`,
+  galleryLawn1: `${base}/ecogen-gallery-SRI05158.jpg`,
+  galleryLawn2: `${base}/ecogen-gallery-SRI05161.jpg`,
+  galleryLawn3: `${base}/ecogen-gallery-SRI05162.jpg`,
+  galleryNight1: `${base}/ecogen-gallery-SRI05163.jpg`,
+  galleryNight2: `${base}/ecogen-gallery-SRI05168.jpg`,
+  galleryInterior1: `${base}/ecogen-gallery-SRI05169.jpg`,
+  galleryInterior2: `${base}/ecogen-gallery-SRI05173.jpg`,
+  galleryMisc1: `${base}/ecogen-gallery-SRI05246.jpg`,
 } as const;
 
 export const GALLERY_IMAGES = [
@@ -55,4 +72,19 @@ export const GALLERY_IMAGES = [
   img.familyLawn,
   img.pool,
   img.hero,
+  img.galleryPool1,
+  img.galleryPool2,
+  img.galleryPool3,
+  img.galleryPool4,
+  img.galleryExterior1,
+  img.galleryExterior2,
+  img.galleryExterior3,
+  img.galleryLawn1,
+  img.galleryLawn2,
+  img.galleryLawn3,
+  img.galleryNight1,
+  img.galleryNight2,
+  img.galleryInterior1,
+  img.galleryInterior2,
+  img.galleryMisc1,
 ] as const;
