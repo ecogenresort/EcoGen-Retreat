@@ -55,7 +55,7 @@ const attractions = [
     image: img.peddaAmberpetOrr
   },
   {
-    title: "Bonguluru ORR Exit",
+    title: "ORR Exit 12",
     time: "8 Mins Drive",
     image: img.bonguluruOrr
   },
