@@ -10,6 +10,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import BookingPage from './pages/BookingPage';
 import Admin from './pages/Admin';
+import Celestia from './pages/Celestia';
 
 function SiteLayout() {
   return (
@@ -22,6 +23,7 @@ function SiteLayout() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/booking" element={<BookingPage />} />
+        <Route path="/celestia" element={<Celestia />} />
       </Routes>
     </Layout>
   );
