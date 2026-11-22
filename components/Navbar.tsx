@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const isHome = location.pathname === '/' || location.pathname === '/rooms';
+  const isHome = location.pathname === '/' || location.pathname === '/rooms' || location.pathname === '/celestia';
   
   useEffect(() => {
     const handleScroll = () => {
@@ -40,6 +40,7 @@ const Navbar: React.FC = () => {
     { name: 'The Retreat', path: '/rooms' },
     { name: 'Experiences', path: '/events' },
     { name: 'Gallery', path: '/gallery' },
+    { name: 'Celestia', path: '/celestia' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -65,7 +66,7 @@ const Navbar: React.FC = () => {
             </video>
           </Link>
 
-          <div className="hidden lg:flex items-center space-x-10">
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-10">
             {navLinks.map((link) => (
               <Link 
                 key={link.name}
